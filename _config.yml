@@ -2,7 +2,7 @@ title: Royinx's Lab
 description: > # this means to ignore newlines until "baseurl:"
   This is Royinx, an AI backend developer. Host the lab and share the interesting skills here.
 permalink: ':title/'
-baseurl: "/blog" # the subpath of your site, e.g. /blog
+# baseurl: "/" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # site-twitter: #if your site has a twitter account, enter it here
 

@@ -41,8 +41,11 @@ HSV presented as Hue, Saturation, Value
 ---
 * How to extract color on a cloth?
 
-   ```
+   using dockerfile to build the container and run the [srcipt](http://github.com/royinx/blog/color_extract/color_extract.py)
 
+   ```
+docker build -t color .
+docker run --rm -it -v ~/Download/blog:/blog -w /blog/color_extract color bash
    ```
 
 
