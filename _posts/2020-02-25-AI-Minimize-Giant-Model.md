@@ -1,8 +1,8 @@
 ---
 layout: post
 title: (AI) - Minimize giant model 
-date: 2020-01-06 12:00:00 +0800
-description: Method of deploy giant model
+date: 2020-02-25 12:00:00 +0800
+description: Method of deploying a giant model
 img: giant.jpg # Add image post (optional)
 fig-caption: # Add figcaption (optional)
 tags: [AI, deployment]

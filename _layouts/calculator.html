@@ -1,0 +1,128 @@
+---
+layout: main
+---
+<body>
+<article class="article-page">
+  <div class="page-content">
+<!--     {% if page.img %}
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src={{ "/assets/img/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}">
+        {% if page.fig-caption %}
+          <figcaption>{{page.fig-caption}}</figcaption>
+        {% endif %}
+      </figure>
+    </div> 
+    {% else %}
+    {% endif %} -->
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">{{page.title}}</h1>
+        <div class="page-date"><span>{{page.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+
+      <!-- {{content | markdownify}} -->
+
+      <div class="row">
+        <div class="col-md-4" >
+          <h4 class="blog-page-title mt-0 mb-20">Convolutional Filter Inputs</h4>
+          <div class="form-group mb-40">
+            <form>
+              <label for="input-size">Input Size</label>
+              <input type="text" class="form-control" id="input-size" value="224" placeholder="Enter an input size (default: 224)">
+            </form>
+          </div>
+        </div>
+        <div class="col-md-8" id="sidebar">
+          <h4 id="layer-index" class="blog-page-title mt-0 mb-20">New Layer Properties</h4>
+          <div class="form-group">
+            <label for="kernel-size">Kernel Size</label>
+            <input id="kernel-size" class="form-control" type="text" value="3">
+          </div>
+          <div class="form-group">
+            <label for="stride">Stride</label>
+            <input id="stride" class="form-control" type="text" value="1">
+          </div>
+          <div class="form-group">
+            <label for="dilation">Dilation</label>
+            <input id="dilation" class="form-control" type="text" value="1">
+          </div>
+          <div class="form-group">
+            <label for="padding">Padding</label>
+            <select class="form-control" id="padding">
+              <option value="SAME">SAME</option>
+              <option value="VALID">VALID</option>
+            </select>
+          </div>
+          <button type="submit" class="button button2" id="insert">Add Layer</button>
+          <button type="button" class="button button3" id="delete" disabled>Remove Layer</button>
+        </div>
+      </div>
+
+      <div class="row topmargin">
+        <div class="col-md-12">
+          <div class="table-responsive mt-30 mb-5">
+            <table class="table table-hover">
+              <thead class="thead-default">
+                <tr>
+                  <th>Layer #</th>
+                  <th>Kernel Size</th>
+                  <th>Stride</th>
+                  <th>Dilation</th>
+                  <th>Padding</th>
+                  <th>Input Size</th>
+                  <th>Output Size</th>
+                  <th>Receptive Field</th>
+                </tr>
+              </thead>
+              <tbody id="layers"></tbody>
+            </table>
+          </div>
+          <button type="button" class="button button3" id="reset">Remove All Layers</button>
+        </div>
+        <div class="col-md-12 mt-60 mb-0">
+          <div class="chart-container" style="min-height: 480px">
+            <canvas id="growth" width="512" height="480"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <script type="text/template" id="layer-template">
+        <th scope="row">&lt;%= (index + 1) %&gt;</th>
+        <td>&lt;%= kernel_size %&gt;</td>
+        <td>&lt;%= stride %&gt;</td>
+        <td>&lt;%= dilation %&gt;</td>
+        <td>&lt;%= padding %&gt;</td>
+        <td>&lt;%= input_size %&gt;</td>
+        <td>&lt;%= output_size %&gt;</td>
+        <td>&lt;%= receptive_field %&gt;</td>
+      </script>
+
+<!--       <p><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous" type="6a38c87c414e8dc630fd1b94-text/javascript"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js" type="6a38c87c414e8dc630fd1b94-text/javascript"></script>
+      <script src="https://fomoro.com/themes/user/fomoro_ai/js/receptive-fields-layer.js" type="6a38c87c414e8dc630fd1b94-text/javascript"></script>
+      <script src="https://fomoro.com/themes/user/fomoro_ai/js/receptive-fields-main.js" type="text/javascript"></script></p>
+ -->
+
+      <p><script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" type="text/javascript"></script>
+        <!-- <script src="../assets/js/AI_calculator_1.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous" type="e0ca929bf2f05210121e968a-text/javascript"></script> -->
+      <script src="../assets/js/AI_calculator_2.js" type="text/javascript"></script>
+      <script src="../assets/js/AI_calculator_3.js" type="text/javascript"></script>
+      <script src="../assets/js/AI_calculator_4.js" type="text/javascript"></script></p>
+
+      <div class="page-footer">
+        <div class="page-tag">
+          {% for tag in page.tags %}
+            <a href="{{site.baseurl}}/tags#{{tag}}" class="tag">&#35; {{ tag }}</a>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- {% include disqus.html %} -->
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous" type="text/javascript"></script> -->
+</body>
